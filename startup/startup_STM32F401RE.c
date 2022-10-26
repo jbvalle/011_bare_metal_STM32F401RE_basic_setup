@@ -10,8 +10,6 @@ extern uint32_t _ebss;
 
 /** Prototypes **/
 extern int main(void);
-extern void __libc_init_array(void);
-
 void Reset_handler          (void);
 void NMI_handler            (void)__attribute__((weak, alias("Default_handler")));
 void HardFault_handler      (void)__attribute__((weak, alias("Default_handler")));
@@ -198,8 +196,6 @@ void Reset_handler(void){
     for(uint32_t *bss_ptr = (uint32_t *)&_sbss; bss_ptr < &_ebss;){
         *bss_ptr++ = 0;
     }
-    /** Call LIBC INIT **/
-    __libc_init_array();
 
     /** CALL main() **/
     main();
