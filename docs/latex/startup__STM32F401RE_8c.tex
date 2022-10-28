@@ -1,0 +1,299 @@
+\hypertarget{startup__STM32F401RE_8c}{}\doxysection{/home/strayker/\+Coding/046\+\_\+bare\+\_\+metal\+\_\+\+STM32\+F401\+RE\+\_\+basic\+\_\+setup/startup/startup\+\_\+\+STM32\+F401\+RE.c File Reference}
+\label{startup__STM32F401RE_8c}\index{/home/strayker/Coding/046\_bare\_metal\_STM32F401RE\_basic\_setup/startup/startup\_STM32F401RE.c@{/home/strayker/Coding/046\_bare\_metal\_STM32F401RE\_basic\_setup/startup/startup\_STM32F401RE.c}}
+
+
+Startup Code for Vector Table Initialization and Reset Handling.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for startup\+\_\+\+STM32\+F401\+RE.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{startup__STM32F401RE_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{startup__STM32F401RE_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Main entry point for blinking project. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{startup__STM32F401RE_8c_a17a85a6f64907de8e9ecdb5c673af8cc}{Reset\+\_\+handler}} (void)
+\item 
+void \mbox{\hyperlink{startup__STM32F401RE_8c_a42d423fca7d66d2f8a7905ee92c1a4a9}{NMI\+\_\+handler}} (void)
+\item 
+\mbox{\Hypertarget{startup__STM32F401RE_8c_a6cc8add261d81891f4f67647f54652a5}\label{startup__STM32F401RE_8c_a6cc8add261d81891f4f67647f54652a5}} 
+void {\bfseries Default\+\_\+handler} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{startup__STM32F401RE_8c_a69247aef56f755ef3b08265060dea50f}{\+\_\+estack}}
+\item 
+\mbox{\Hypertarget{startup__STM32F401RE_8c_a1ecae4ad04c5b02e60d2db51706c2d75}\label{startup__STM32F401RE_8c_a1ecae4ad04c5b02e60d2db51706c2d75}} 
+uint32\+\_\+t {\bfseries \+\_\+sidata}
+\item 
+\mbox{\Hypertarget{startup__STM32F401RE_8c_a61687bc10bffbfec9c6fd33bddff3094}\label{startup__STM32F401RE_8c_a61687bc10bffbfec9c6fd33bddff3094}} 
+uint32\+\_\+t {\bfseries \+\_\+sdata}
+\item 
+\mbox{\Hypertarget{startup__STM32F401RE_8c_a1fc4a71c31f5b048d3b1b7b2d10684d1}\label{startup__STM32F401RE_8c_a1fc4a71c31f5b048d3b1b7b2d10684d1}} 
+uint32\+\_\+t {\bfseries \+\_\+edata}
+\item 
+\mbox{\Hypertarget{startup__STM32F401RE_8c_adcc3ae1cacdf95ad88f01dd26f589175}\label{startup__STM32F401RE_8c_adcc3ae1cacdf95ad88f01dd26f589175}} 
+uint32\+\_\+t {\bfseries \+\_\+sbss}
+\item 
+\mbox{\Hypertarget{startup__STM32F401RE_8c_a580f44faf8ff886796f2114d0de12c77}\label{startup__STM32F401RE_8c_a580f44faf8ff886796f2114d0de12c77}} 
+uint32\+\_\+t {\bfseries \+\_\+ebss}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Startup Code for Vector Table Initialization and Reset Handling. 
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{extern} uint32\_t \mbox{\hyperlink{startup__STM32F401RE_8c_a69247aef56f755ef3b08265060dea50f}{\_estack}};}
+\DoxyCodeLine{\textcolor{keyword}{extern} uint32\_t \_sidata;}
+\DoxyCodeLine{\textcolor{keyword}{extern} uint32\_t \_sdata;}
+\DoxyCodeLine{\textcolor{keyword}{extern} uint32\_t \_edata;}
+\DoxyCodeLine{\textcolor{keyword}{extern} uint32\_t \_sbss;}
+\DoxyCodeLine{\textcolor{keyword}{extern} uint32\_t \_ebss;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{extern} \textcolor{keywordtype}{int} \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{startup__STM32F401RE_8c_a17a85a6f64907de8e9ecdb5c673af8cc}{Reset\_handler}}          (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{startup__STM32F401RE_8c_a42d423fca7d66d2f8a7905ee92c1a4a9}{NMI\_handler}}            (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} HardFault\_handler      (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} MemManage\_handler      (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} BusFault\_handler       (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} UsuageFault\_handler    (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} SVCall\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DebugMonitor\_handler   (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} PendSV\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} Systick\_handler        (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} WWDG\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXITI16\_PVD\_\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXITI21\_TAMP\_STAMP\_handler   (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXITI22\_RTC\_WKUP\_handler     (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} FLASH\_handler                (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} RCC\_handler                  (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXTI0\_handler                (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXTI1\_handler                (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXTI2\_handler                (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXTI3\_handler                (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXTI4\_handler                (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA1\_Stream0\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA1\_Stream1\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA1\_Stream2\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA1\_Stream3\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA1\_Stream4\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA1\_Stream5\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA1\_Stream6\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} ADC\_handler                  (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXTI9\_5\_\_handler             (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TIM1\_BRK\_TIM9\_handler        (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TIM1\_UP\_TIM10\_handler        (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TIM1\_TRG\_COM\_TIM11\_handler   (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TIM1\_CC\_handler              (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TIM2\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TIM3\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TIM4\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} I2C1\_EV\_handler              (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} I2C1\_ER\_handler              (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} I2C2\_EV\_handler              (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} I2C2\_ER\_handler              (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} SPI1\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} SPI2\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} UART1\_handler                (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} UART2\_handler                (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXTI15\_10\_handler            (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXTI17\_RTC\_Alarm\_handler     (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} EXTI18\_OTG\_FS\_WKUP\_handler   (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA1\_Stream7\_handler         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} SDIO\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} TIM5\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} SPI3\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA2\_Stream0\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA2\_Stream1\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA2\_Stream2\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA2\_Stream3\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA2\_Stream4\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} OTG\_FS\_handler                       (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA2\_Stream5\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA2\_Stream6\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} DMA2\_Stream7\_handler                 (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} UART6\_handler                        (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} I2C3\_EV\_handler                      (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} I2C3\_ER\_handler                      (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} FPU\_handler                          (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{\textcolor{keywordtype}{void} SPI4\_handler                         (\textcolor{keywordtype}{void})\_\_attribute\_\_((weak, alias(\textcolor{stringliteral}{"{}Default\_handler"{}})));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\_\_attribute\_\_ ((section(\textcolor{stringliteral}{"{}.isr\_vector"{}})))}
+\DoxyCodeLine{void (* const fpn\_vector[])(\textcolor{keywordtype}{void}) = \{}
+\DoxyCodeLine{    (void (*)(void))(\&\mbox{\hyperlink{startup__STM32F401RE_8c_a69247aef56f755ef3b08265060dea50f}{\_estack}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{startup__STM32F401RE_8c_a17a85a6f64907de8e9ecdb5c673af8cc}{Reset\_handler}},}
+\DoxyCodeLine{    \mbox{\hyperlink{startup__STM32F401RE_8c_a42d423fca7d66d2f8a7905ee92c1a4a9}{NMI\_handler}},}
+\DoxyCodeLine{    HardFault\_handler,}
+\DoxyCodeLine{    MemManage\_handler,}
+\DoxyCodeLine{    BusFault\_handler,}
+\DoxyCodeLine{    UsuageFault\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    SVCall\_handler,}
+\DoxyCodeLine{    DebugMonitor\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    PendSV\_handler,}
+\DoxyCodeLine{    Systick\_handler,}
+\DoxyCodeLine{    WWDG\_handler,}
+\DoxyCodeLine{    EXITI16\_PVD\_\_handler,}
+\DoxyCodeLine{    EXITI21\_TAMP\_STAMP\_handler,}
+\DoxyCodeLine{    EXITI22\_RTC\_WKUP\_handler,}
+\DoxyCodeLine{    FLASH\_handler,}
+\DoxyCodeLine{    RCC\_handler,}
+\DoxyCodeLine{    EXTI0\_handler,}
+\DoxyCodeLine{    EXTI1\_handler,}
+\DoxyCodeLine{    EXTI2\_handler,}
+\DoxyCodeLine{    EXTI3\_handler,}
+\DoxyCodeLine{    EXTI4\_handler,}
+\DoxyCodeLine{    DMA1\_Stream0\_handler,}
+\DoxyCodeLine{    DMA1\_Stream1\_handler,}
+\DoxyCodeLine{    DMA1\_Stream2\_handler,}
+\DoxyCodeLine{    DMA1\_Stream3\_handler,}
+\DoxyCodeLine{    DMA1\_Stream4\_handler,}
+\DoxyCodeLine{    DMA1\_Stream5\_handler,}
+\DoxyCodeLine{    DMA1\_Stream6\_handler,}
+\DoxyCodeLine{    ADC\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    EXTI9\_5\_\_handler,}
+\DoxyCodeLine{    TIM1\_BRK\_TIM9\_handler,}
+\DoxyCodeLine{    TIM1\_UP\_TIM10\_handler,}
+\DoxyCodeLine{    TIM1\_TRG\_COM\_TIM11\_handler,}
+\DoxyCodeLine{    TIM1\_CC\_handler,}
+\DoxyCodeLine{    TIM2\_handler,}
+\DoxyCodeLine{    TIM3\_handler,}
+\DoxyCodeLine{    TIM4\_handler,}
+\DoxyCodeLine{    I2C1\_EV\_handler,}
+\DoxyCodeLine{    I2C1\_ER\_handler,}
+\DoxyCodeLine{    I2C2\_EV\_handler,}
+\DoxyCodeLine{    I2C2\_ER\_handler,}
+\DoxyCodeLine{    SPI1\_handler,}
+\DoxyCodeLine{    SPI2\_handler,}
+\DoxyCodeLine{    UART1\_handler,}
+\DoxyCodeLine{    UART2\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    EXTI15\_10\_handler,}
+\DoxyCodeLine{    EXTI17\_RTC\_Alarm\_handler,}
+\DoxyCodeLine{    EXTI18\_OTG\_FS\_WKUP\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    DMA1\_Stream7\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    SDIO\_handler,}
+\DoxyCodeLine{    TIM5\_handler,}
+\DoxyCodeLine{    SPI3\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    DMA2\_Stream0\_handler,}
+\DoxyCodeLine{    DMA2\_Stream1\_handler,}
+\DoxyCodeLine{    DMA2\_Stream2\_handler,}
+\DoxyCodeLine{    DMA2\_Stream3\_handler,}
+\DoxyCodeLine{    DMA2\_Stream4\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    OTG\_FS\_handler,}
+\DoxyCodeLine{    DMA2\_Stream5\_handler,}
+\DoxyCodeLine{    DMA2\_Stream6\_handler,}
+\DoxyCodeLine{    DMA2\_Stream7\_handler,}
+\DoxyCodeLine{    UART6\_handler,}
+\DoxyCodeLine{    I2C3\_EV\_handler,}
+\DoxyCodeLine{    I2C3\_ER\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    FPU\_handler,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    0,}
+\DoxyCodeLine{    SPI4\_handler}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{startup__STM32F401RE_8c_a17a85a6f64907de8e9ecdb5c673af8cc}{Reset\_handler}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{    uint32\_t * pSRC = (uint32\_t *)\&\_sidata;}
+\DoxyCodeLine{    uint32\_t * pDST = (uint32\_t *)\&\_sdata;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(uint32\_t *dataptr = (uint32\_t *)pDST; dataptr < \&\_edata;)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{        *dataptr++ = *pSRC++;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(uint32\_t *bss\_ptr = (uint32\_t *)\&\_sbss; bss\_ptr < \&\_ebss;)\{}
+\DoxyCodeLine{        *bss\_ptr++ = 0;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} Default\_handler(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(;;);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{startup__STM32F401RE_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{startup__STM32F401RE_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{startup\_STM32F401RE.c@{startup\_STM32F401RE.c}!main@{main}}
+\index{main@{main}!startup\_STM32F401RE.c@{startup\_STM32F401RE.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main entry point for blinking project. 
+
+Prototypes
+
+GPIOA Peripherals are configured to OUTPUT, with LED connected to PA5 being toggled every 100ms \mbox{\Hypertarget{startup__STM32F401RE_8c_a42d423fca7d66d2f8a7905ee92c1a4a9}\label{startup__STM32F401RE_8c_a42d423fca7d66d2f8a7905ee92c1a4a9}} 
+\index{startup\_STM32F401RE.c@{startup\_STM32F401RE.c}!NMI\_handler@{NMI\_handler}}
+\index{NMI\_handler@{NMI\_handler}!startup\_STM32F401RE.c@{startup\_STM32F401RE.c}}
+\doxysubsubsection{\texorpdfstring{NMI\_handler()}{NMI\_handler()}}
+{\footnotesize\ttfamily void NMI\+\_\+handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize Interrupt Vector \mbox{\Hypertarget{startup__STM32F401RE_8c_a17a85a6f64907de8e9ecdb5c673af8cc}\label{startup__STM32F401RE_8c_a17a85a6f64907de8e9ecdb5c673af8cc}} 
+\index{startup\_STM32F401RE.c@{startup\_STM32F401RE.c}!Reset\_handler@{Reset\_handler}}
+\index{Reset\_handler@{Reset\_handler}!startup\_STM32F401RE.c@{startup\_STM32F401RE.c}}
+\doxysubsubsection{\texorpdfstring{Reset\_handler()}{Reset\_handler()}}
+{\footnotesize\ttfamily void Reset\+\_\+handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Copy Data from FLASH to SRAM
+
+Initialize BSS with ZEROES
+
+CALL \mbox{\hyperlink{startup__STM32F401RE_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()}}
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{startup__STM32F401RE_8c_a69247aef56f755ef3b08265060dea50f}\label{startup__STM32F401RE_8c_a69247aef56f755ef3b08265060dea50f}} 
+\index{startup\_STM32F401RE.c@{startup\_STM32F401RE.c}!\_estack@{\_estack}}
+\index{\_estack@{\_estack}!startup\_STM32F401RE.c@{startup\_STM32F401RE.c}}
+\doxysubsubsection{\texorpdfstring{\_estack}{\_estack}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+estack\hspace{0.3cm}{\ttfamily [extern]}}
+
+global variables 
