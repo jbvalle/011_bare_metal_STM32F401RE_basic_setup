@@ -1,3 +1,8 @@
+/**
+ *@file linkerscript_STM32F401RE.ld
+ *@brief Define Memory and OUTPUT Sections 
+ *@include linkerscript_STM32F401RE.ld
+ **/
 ENTRY(Reset_handler)
 
 /** Top of Stack **/

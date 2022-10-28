@@ -1,0 +1,114 @@
+\hypertarget{main_8c}{}\doxysection{/home/strayker/\+Coding/046\+\_\+bare\+\_\+metal\+\_\+\+STM32\+F401\+RE\+\_\+basic\+\_\+setup/src/main.c File Reference}
+\label{main_8c}\index{/home/strayker/Coding/046\_bare\_metal\_STM32F401RE\_basic\_setup/src/main.c@{/home/strayker/Coding/046\_bare\_metal\_STM32F401RE\_basic\_setup/src/main.c}}
+
+
+Register Level Programming Simple Blink Project.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}peripherals.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a8da344cf0b83445ceb8e7d7505d2ccc9}\label{main_8c_a8da344cf0b83445ceb8e7d7505d2ccc9}} 
+\#define {\bfseries MODER}~2
+\item 
+\mbox{\Hypertarget{main_8c_a3f04353974f7bd453631b2b01e43e108}\label{main_8c_a3f04353974f7bd453631b2b01e43e108}} 
+\#define {\bfseries pin5}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_aceb3bc2775253042ee88e50750d205ac}{wait\+\_\+ms}} (int time)
+\begin{DoxyCompactList}\small\item\em This is a simple delay function implementation, that waits for $<$time$>$ms. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Main entry point for blinking project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_ab0692989b46b41afd73497b4d80caee4}\label{main_8c_ab0692989b46b41afd73497b4d80caee4}} 
+\mbox{\hyperlink{structRCC__t}{RCC\+\_\+t}} $\ast$const \mbox{\hyperlink{main_8c_ab0692989b46b41afd73497b4d80caee4}{RCC}} = (\mbox{\hyperlink{structRCC__t}{RCC\+\_\+t}} $\ast$) 0x40023800
+\begin{DoxyCompactList}\small\item\em Struct Pointer for RCC Peripherals assigned with fixed address specified in reference manual. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{main_8c_acb74c8d61b9a6afd4b6408d322e45fc4}\label{main_8c_acb74c8d61b9a6afd4b6408d322e45fc4}} 
+\mbox{\hyperlink{structGPIOx__t}{GPIOx\+\_\+t}} $\ast$const \mbox{\hyperlink{main_8c_acb74c8d61b9a6afd4b6408d322e45fc4}{GPIOA}} = (\mbox{\hyperlink{structGPIOx__t}{GPIOx\+\_\+t}} $\ast$) 0x40020000
+\begin{DoxyCompactList}\small\item\em Struct Pointer for GPIOA Peripherals assigned with fixed address specified in reference manual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Register Level Programming Simple Blink Project. 
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{peripherals_8h}{peripherals.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define MODER 2}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define pin5 5}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structRCC__t}{RCC\_t}}   * \textcolor{keyword}{const} \mbox{\hyperlink{main_8c_ab0692989b46b41afd73497b4d80caee4}{RCC}}     = (\mbox{\hyperlink{structRCC__t}{RCC\_t}}    *)  0x40023800; }
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structGPIOx__t}{GPIOx\_t}} * \textcolor{keyword}{const} \mbox{\hyperlink{main_8c_acb74c8d61b9a6afd4b6408d322e45fc4}{GPIOA}}   = (\mbox{\hyperlink{structGPIOx__t}{GPIOx\_t}}  *)  0x40020000;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{main_8c_aceb3bc2775253042ee88e50750d205ac}{wait\_ms}}(\textcolor{keywordtype}{int} time)\{}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < time; i++)\{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < 1600; j++);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{comment}{//Enable Clock to GPIOA Peripheral}}
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_ab0692989b46b41afd73497b4d80caee4}{RCC}}-\/>RCC\_AHB1ENR |= 1;}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{comment}{// Reset MODER Bitfield of PA5}}
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_acb74c8d61b9a6afd4b6408d322e45fc4}{GPIOA}}-\/>GPIOx\_MODER \&= \string~(3 << (pin5 * MODER));}
+\DoxyCodeLine{    \textcolor{comment}{// Write Value 1 to MODER Bitfield PA5 to configure PA5 as OUTPUT}}
+\DoxyCodeLine{    \mbox{\hyperlink{main_8c_acb74c8d61b9a6afd4b6408d322e45fc4}{GPIOA}}-\/>GPIOx\_MODER |=  (1 << (pin5 * MODER));}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(;;)\{}
+\DoxyCodeLine{        \mbox{\hyperlink{main_8c_acb74c8d61b9a6afd4b6408d322e45fc4}{GPIOA}}-\/>GPIOx\_ODR \string^= (1 << pin5);}
+\DoxyCodeLine{        \mbox{\hyperlink{main_8c_aceb3bc2775253042ee88e50750d205ac}{wait\_ms}}(100);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Main entry point for blinking project. 
+
+GPIOA Peripherals are configured to OUTPUT, with LED connected to PA5 being toggled every 100ms Toggle PA5
+
+Wait for 100ms\mbox{\Hypertarget{main_8c_aceb3bc2775253042ee88e50750d205ac}\label{main_8c_aceb3bc2775253042ee88e50750d205ac}} 
+\index{main.c@{main.c}!wait\_ms@{wait\_ms}}
+\index{wait\_ms@{wait\_ms}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{wait\_ms()}{wait\_ms()}}
+{\footnotesize\ttfamily void wait\+\_\+ms (\begin{DoxyParamCaption}\item[{int}]{time }\end{DoxyParamCaption})}
+
+
+
+This is a simple delay function implementation, that waits for $<$time$>$ms. 
+
+In this implementation the inner for loop, cycles for 1600 CLK Cycles which results in around 1ms delay, depending on the parameter $<$time$>$, the amount of ms delay can be adjusted.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em time} & $\vert$ number of ms the processor should wait \\
+\hline
+\end{DoxyParams}

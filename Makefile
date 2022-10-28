@@ -55,6 +55,9 @@ debug: FORCE
 edit: FORCE
 	vim -S Session.vim
 
+doxy:
+	cd ./doc && doxygen Doxyfile
+
 clean: FORCE
 	rm -rf $(SRC_DIR)/$(OBJ_DIR) $(DEB_DIR)
 

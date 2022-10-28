@@ -1,0 +1,89 @@
+\hypertarget{peripherals_8h}{}\doxysection{/home/strayker/\+Coding/046\+\_\+bare\+\_\+metal\+\_\+\+STM32\+F401\+RE\+\_\+basic\+\_\+setup/inc/peripherals.h File Reference}
+\label{peripherals_8h}\index{/home/strayker/Coding/046\_bare\_metal\_STM32F401RE\_basic\_setup/inc/peripherals.h@{/home/strayker/Coding/046\_bare\_metal\_STM32F401RE\_basic\_setup/inc/peripherals.h}}
+
+
+Peripheral initialization using structs.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for peripherals.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{peripherals_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{peripherals_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structGPIOx__t}{GPIOx\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structRCC__t}{RCC\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structTIMx__t}{TIMx\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structUSART__t}{USART\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structNVIC__t}{NVIC\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structSYSCFG__t}{SYSCFG\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structEXTI__t}{EXTI\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{peripherals_8h_aec43007d9998a0a0e01faede4133d6be}\label{peripherals_8h_aec43007d9998a0a0e01faede4133d6be}} 
+\#define {\bfseries \+\_\+\+\_\+\+IO}~volatile
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{peripherals_8h_a735dbcd9f91eca3184643ce780850904}\label{peripherals_8h_a735dbcd9f91eca3184643ce780850904}} 
+typedef struct \mbox{\hyperlink{structGPIOx__t}{GPIOx\+\_\+t}} {\bfseries GPIOx\+\_\+t}
+\item 
+\mbox{\Hypertarget{peripherals_8h_ae4109dcee4d1b12f647e2787debb6941}\label{peripherals_8h_ae4109dcee4d1b12f647e2787debb6941}} 
+typedef struct \mbox{\hyperlink{structRCC__t}{RCC\+\_\+t}} {\bfseries RCC\+\_\+t}
+\item 
+\mbox{\Hypertarget{peripherals_8h_a9be831db616a3cfced35a200f8fcc2f2}\label{peripherals_8h_a9be831db616a3cfced35a200f8fcc2f2}} 
+typedef struct \mbox{\hyperlink{structTIMx__t}{TIMx\+\_\+t}} {\bfseries TIMx\+\_\+t}
+\item 
+\mbox{\Hypertarget{peripherals_8h_a20c20570ea50e8ba1639fab75bcc9a17}\label{peripherals_8h_a20c20570ea50e8ba1639fab75bcc9a17}} 
+typedef struct \mbox{\hyperlink{structUSART__t}{USART\+\_\+t}} {\bfseries USART\+\_\+t}
+\item 
+\mbox{\Hypertarget{peripherals_8h_acc0e080405d1a85eb704b82548af9548}\label{peripherals_8h_acc0e080405d1a85eb704b82548af9548}} 
+typedef struct \mbox{\hyperlink{structNVIC__t}{NVIC\+\_\+t}} {\bfseries NVIC\+\_\+t}
+\item 
+\mbox{\Hypertarget{peripherals_8h_a225d9994194bcd8c02a43bacc08ba4e3}\label{peripherals_8h_a225d9994194bcd8c02a43bacc08ba4e3}} 
+typedef struct \mbox{\hyperlink{structSYSCFG__t}{SYSCFG\+\_\+t}} {\bfseries SYSCFG\+\_\+t}
+\item 
+\mbox{\Hypertarget{peripherals_8h_a845dea513194ec39081163f18b06658f}\label{peripherals_8h_a845dea513194ec39081163f18b06658f}} 
+typedef struct \mbox{\hyperlink{structEXTI__t}{EXTI\+\_\+t}} {\bfseries EXTI\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{peripherals_8h_ab0692989b46b41afd73497b4d80caee4}\label{peripherals_8h_ab0692989b46b41afd73497b4d80caee4}} 
+\mbox{\hyperlink{structRCC__t}{RCC\+\_\+t}} $\ast$const \mbox{\hyperlink{peripherals_8h_ab0692989b46b41afd73497b4d80caee4}{RCC}}
+\begin{DoxyCompactList}\small\item\em Struct Pointer for RCC Peripherals assigned with fixed address specified in reference manual. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{peripherals_8h_acb74c8d61b9a6afd4b6408d322e45fc4}\label{peripherals_8h_acb74c8d61b9a6afd4b6408d322e45fc4}} 
+\mbox{\hyperlink{structGPIOx__t}{GPIOx\+\_\+t}} $\ast$const \mbox{\hyperlink{peripherals_8h_acb74c8d61b9a6afd4b6408d322e45fc4}{GPIOA}}
+\begin{DoxyCompactList}\small\item\em Struct Pointer for GPIOA Peripherals assigned with fixed address specified in reference manual. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{peripherals_8h_aff8545ca92e7a0f002d14d94dbce3654}\label{peripherals_8h_aff8545ca92e7a0f002d14d94dbce3654}} 
+\mbox{\hyperlink{structUSART__t}{USART\+\_\+t}} $\ast$const {\bfseries USART2}
+\item 
+\mbox{\Hypertarget{peripherals_8h_a0f952443af56237c01a6340db5ea6ffb}\label{peripherals_8h_a0f952443af56237c01a6340db5ea6ffb}} 
+\mbox{\hyperlink{structNVIC__t}{NVIC\+\_\+t}} $\ast$const {\bfseries NVIC}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Peripheral initialization using structs. 
+
