@@ -25,11 +25,6 @@ SECTIONS
         . = ALIGN(4);
         *(.text)
         *(.text.*)
-        *(.eh_frame)
-        *(.init)
-        *(.fini)
-        *(.ARM)
-        *(.ARM*)
         *(.rodata)
         *(.rodata.*)
         . = ALIGN(4);
@@ -43,8 +38,6 @@ SECTIONS
         _sdata = .;
         *(.data)
         *(.data.*)
-        *(.init_*)
-        *(.fini_*)
         . = ALIGN(4);
         _edata = .;
     }> SRAM AT> FLASH
@@ -53,13 +46,9 @@ SECTIONS
     {
         . = ALIGN(4);
         _sbss = .;
-        __bss_start__ = _sbss;
         *(.bss)
         *(.bss.*)
         . = ALIGN(4);
         _ebss = .;
-        __bss_end__ = _ebss;
-        . = ALIGN(4);
-        end = __bss_end__;
     }> SRAM
 }
