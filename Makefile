@@ -55,12 +55,12 @@ debug: FORCE
 edit: FORCE
 	vim -S Session.vim
 
-doxy:
-	cd ./doc && doxygen Doxyfile
+doxy: FORCE
+	cd ./docs && doxygen Doxyfile
 
 clean: FORCE
 	rm -rf $(SRC_DIR)/$(OBJ_DIR) $(DEB_DIR)
 
 FORCE:
 
-.PHONY = mkobj mkdeb clean FORCE flash debug edit
+.PHONY = mkobj mkdeb clean FORCE flash debug edit doxy
