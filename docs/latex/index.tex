@@ -1,0 +1,102 @@
+\label{index_md__home_strayker_Coding_046_bare_metal_STM32F401RE_basic_setup_README}%
+\Hypertarget{index_md__home_strayker_Coding_046_bare_metal_STM32F401RE_basic_setup_README}%
+ \href{https://jbvalle.github.io/stm32_bare_metal_startup_linker.html}{\texttt{ }}
+
+This project is about setting up a basic bare metal stm32 project. This project does not use any ide or third party libraries. The focus is on getting started with the stm32 platform and understanding the basics of how to set up a project without any abstractions.
+
+\hypertarget{index_autotoc_md1}{}\doxysection{Contents}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item \href{\#why}{\texttt{ Why?}}
+\item \href{\#installation}{\texttt{ Installation}}
+\item \href{\#usage}{\texttt{ Usage}}
+\item \href{\#output-structure}{\texttt{ Output Structure}}
+\item \href{\#want-to-learn-more}{\texttt{ Want to learn more?}}
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysubsubsection{Why?}\label{index_autotoc_md2}
+Suppose you’ve ever wondered how to set up a bare metal register level C program for developing embedded systems without an IDE or libraries such as HAL or any other abstractions. In that case, this project is for you. In order to understand what is going on, I\textquotesingle{}ve provided a link at the top of the page that will take you to a blog post that will help you understand the project a little better.
+
+There are lot of benefits to learning about this approach, and actually implementing a complete project without any abstractions like IDEs and third-\/party libraries, a few are\+:
+\begin{DoxyItemize}
+\item STM32 microcontrollers have a large number of registers, that can be used for various purposes, using this approach really forces one to understand the hardware and all its functionalities from the ground up
+\item programming at this low level allows for more flexibility in how the MCU is used
+\item register level bare metal programming can be used to optimize the MCU resources
+\item using this approach can improve the performance of the MCU
+\item this method can also be used to create custom peripherals and interfaces
+\item lastly, it is a lot of fun! \+:)
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsection{\#\#\# Installation Requirements}\label{index_autotoc_md3}
+\begin{quote}
+{\bfseries{Warning}} Please note that it has only been tested on Ubuntu 22.\+04, and further adjustments may be necessary for other systems. I would be grateful for any messages if you encounter any errors. Thank you! \end{quote}
+\hypertarget{index_autotoc_md4}{}\doxyparagraph{Install $<$tt$>$\+ARM GNU Toolchain$<$/tt$>$\+: $<$a href=\char`\"{}https\+://developer.\+arm.\+com/downloads/-\//gnu-\/rm\char`\"{}$>$$<$tt$>$\+Download Link$<$/tt$>$$<$/a$>$}\label{index_autotoc_md4}
+some additional recommended installations for the ARM GNU Toolchain\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ sudo apt-\/get install build-\/essential libgmp3-\/dev libmpfr-\/dev libx11-\/6 libx11-\/dev texinfo flex bison libmpc-\/dev libncurses5 libncurses5-\/dbg libncurses5-\/dev libncursesw5 libncursesw5-\/dbg libncursesw5-\/dev zlibc }
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md5}{}\doxyparagraph{Install $<$tt$>$openocd$<$/tt$>$}\label{index_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ sudo apt-\/get install -\/y openocd}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md6}{}\doxyparagraph{Install $<$tt$>$stlink-\/tools$<$/tt$>$}\label{index_autotoc_md6}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ sudo apt-\/get install -\/y stlink-\/tools}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md7}{}\doxyparagraph{Install $<$tt$>$gdb-\/multiarch$<$/tt$>$}\label{index_autotoc_md7}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ sudo apt-\/get install -\/y gdb-\/multiarch}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md8}{}\doxysubsection{\#\#\# Usage}\label{index_autotoc_md8}
+To start the interactive program, simply run {\ttfamily \$ shallow-\/backup}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Usage: make [TARGETS]}
+\DoxyCodeLine{}
+\DoxyCodeLine{Targets:}
+\DoxyCodeLine{  -\/all                        Generate object files and executable}
+\DoxyCodeLine{  -\/flash                      Call OpenOCD, call gdb-\/multiarch, flash elf file using st-\/link-\/v2 debugger}
+\DoxyCodeLine{  -\/debug                      Call OpenOCD, call gdb-\/multiarch, debug main elf file}
+\DoxyCodeLine{  -\/doxy                       Generate Documentation files using Doxygen}
+\DoxyCodeLine{  -\/clean                      Delete all object and elf files}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md9}{}\doxysubsection{\#\#\#\# Output Structure}\label{index_autotoc_md9}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./}
+\DoxyCodeLine{├── debug/}
+\DoxyCodeLine{│   ├── main.elf}
+\DoxyCodeLine{│   └── main.map}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├── docs/}
+\DoxyCodeLine{│   ├── html/}
+\DoxyCodeLine{│   │   └── ...}
+\DoxyCodeLine{│   ├── latex/}
+\DoxyCodeLine{│   │   └── ...}
+\DoxyCodeLine{│   └── Doxygen}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├── inc/}
+\DoxyCodeLine{│   └── peripherals.h}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├── src/}
+\DoxyCodeLine{│   ├── obj/}
+\DoxyCodeLine{│   │   ├── main.o}
+\DoxyCodeLine{│   │   └── startup\_STM32F401RE.o}
+\DoxyCodeLine{│   └── main.c}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├── startup/}
+\DoxyCodeLine{│   ├── debug.gdb}
+\DoxyCodeLine{│   ├── flash.gdb}
+\DoxyCodeLine{│   ├── linkerscript\_STM32F401RE.ld}
+\DoxyCodeLine{│   └── startup\_STM32F401RE.c}
+\DoxyCodeLine{│}
+\DoxyCodeLine{└── Makefile}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md10}{}\doxysubsection{\#\#\# Want to learn?}\label{index_autotoc_md10}
+\href{https://jbvalle.github.io/stm32_bare_metal_startup_linker.html}{\texttt{ }} 

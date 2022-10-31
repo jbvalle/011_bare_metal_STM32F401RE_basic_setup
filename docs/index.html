@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Bare Metal Blink Project: Main Page</title>
+<title>Bare Metal Blink Project: Bare Metal STM32</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,11 +60,96 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Bare Metal Blink Project Documentation</div>  </div>
+<div class="title">Bare Metal STM32 </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__home_strayker_Coding_046_bare_metal_STM32F401RE_basic_setup_README"></a> <a href="https://jbvalle.github.io/stm32_bare_metal_startup_linker.html"><img src="https://jbvalle.github.io/images/check_out_my_blog.png" alt="blog" class="inline"/></a></p>
+<p>This project is about setting up a basic bare metal stm32 project. This project does not use any ide or third party libraries. The focus is on getting started with the stm32 platform and understanding the basics of how to set up a project without any abstractions.</p>
+<p><img src="./img/stm32_bare_metal_make.gif" alt="flashing a stm32" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Contents</h1>
+<ul>
+<li><a href="#why">Why?</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#output-structure">Output Structure</a></li>
+<li><a href="#want-to-learn-more">Want to learn more?</a></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Why?</h3>
+<p>Suppose you’ve ever wondered how to set up a bare metal register level C program for developing embedded systems without an IDE or libraries such as HAL or any other abstractions. In that case, this project is for you. In order to understand what is going on, I've provided a link at the top of the page that will take you to a blog post that will help you understand the project a little better.</p>
+<p>There are lot of benefits to learning about this approach, and actually implementing a complete project without any abstractions like IDEs and third-party libraries, a few are:</p><ul>
+<li>STM32 microcontrollers have a large number of registers, that can be used for various purposes, using this approach really forces one to understand the hardware and all its functionalities from the ground up</li>
+<li>programming at this low level allows for more flexibility in how the MCU is used</li>
+<li>register level bare metal programming can be used to optimize the MCU resources</li>
+<li>using this approach can improve the performance of the MCU</li>
+<li>this method can also be used to create custom peripherals and interfaces</li>
+<li>lastly, it is a lot of fun! :)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md3"></a>
+### Installation Requirements</h2>
+<blockquote class="doxtable">
+<p><b>Warning</b> Please note that it has only been tested on Ubuntu 22.04, and further adjustments may be necessary for other systems. I would be grateful for any messages if you encounter any errors. Thank you! </p>
+</blockquote>
+<h4><a class="anchor" id="autotoc_md4"></a>
+Install &lt;tt&gt;ARM GNU Toolchain&lt;/tt&gt;: &lt;a href="https://developer.arm.com/downloads/-/gnu-rm"&gt;&lt;tt&gt;Download Link&lt;/tt&gt;&lt;/a&gt;</h4>
+<p>some additional recommended installations for the ARM GNU Toolchain: </p><div class="fragment"><div class="line">$ sudo apt-get install build-essential libgmp3-dev libmpfr-dev libx11-6 libx11-dev texinfo flex bison libmpc-dev libncurses5 libncurses5-dbg libncurses5-dev libncursesw5 libncursesw5-dbg libncursesw5-dev zlibc </div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md5"></a>
+Install &lt;tt&gt;openocd&lt;/tt&gt;</h4>
+<div class="fragment"><div class="line">$ sudo apt-get install -y openocd</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md6"></a>
+Install &lt;tt&gt;stlink-tools&lt;/tt&gt;</h4>
+<div class="fragment"><div class="line">$ sudo apt-get install -y stlink-tools</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md7"></a>
+Install &lt;tt&gt;gdb-multiarch&lt;/tt&gt;</h4>
+<div class="fragment"><div class="line">$ sudo apt-get install -y gdb-multiarch</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
+### Usage</h2>
+<p>To start the interactive program, simply run <code>$ shallow-backup</code>.</p>
+<div class="fragment"><div class="line">Usage: make [TARGETS]</div>
+<div class="line"> </div>
+<div class="line">Targets:</div>
+<div class="line">  -all                        Generate object files and executable</div>
+<div class="line">  -flash                      Call OpenOCD, call gdb-multiarch, flash elf file using st-link-v2 debugger</div>
+<div class="line">  -debug                      Call OpenOCD, call gdb-multiarch, debug main elf file</div>
+<div class="line">  -doxy                       Generate Documentation files using Doxygen</div>
+<div class="line">  -clean                      Delete all object and elf files</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
+#### Output Structure</h2>
+<div class="fragment"><div class="line">./</div>
+<div class="line">├── debug/</div>
+<div class="line">│   ├── main.elf</div>
+<div class="line">│   └── main.map</div>
+<div class="line">│</div>
+<div class="line">├── docs/</div>
+<div class="line">│   ├── html/</div>
+<div class="line">│   │   └── ...</div>
+<div class="line">│   ├── latex/</div>
+<div class="line">│   │   └── ...</div>
+<div class="line">│   └── Doxygen</div>
+<div class="line">│</div>
+<div class="line">├── inc/</div>
+<div class="line">│   └── peripherals.h</div>
+<div class="line">│</div>
+<div class="line">├── src/</div>
+<div class="line">│   ├── obj/</div>
+<div class="line">│   │   ├── main.o</div>
+<div class="line">│   │   └── startup_STM32F401RE.o</div>
+<div class="line">│   └── main.c</div>
+<div class="line">│</div>
+<div class="line">├── startup/</div>
+<div class="line">│   ├── debug.gdb</div>
+<div class="line">│   ├── flash.gdb</div>
+<div class="line">│   ├── linkerscript_STM32F401RE.ld</div>
+<div class="line">│   └── startup_STM32F401RE.c</div>
+<div class="line">│</div>
+<div class="line">└── Makefile</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
+### Want to learn?</h2>
+<p><a href="https://jbvalle.github.io/stm32_bare_metal_startup_linker.html"><img src="https://jbvalle.github.io/images/check_out_my_blog.png" alt="blog" class="inline"/></a> </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

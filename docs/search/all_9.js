@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usart_5ft_15',['USART_t',['../structUSART__t.html',1,'']]]
+  ['timx_5ft_15',['TIMx_t',['../structTIMx__t.html',1,'']]]
 ];
