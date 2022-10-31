@@ -49,7 +49,7 @@ int main(void){
     
     for(;;){
         // Toggle PA5
-        //GPIOA->GPIOx_ODR ^= (1 << pin5);
+        GPIOA->GPIOx_ODR ^= (1 << pin5);
         // Wait for 100ms
         wait_ms(100);
     }
