@@ -4,7 +4,7 @@
 
 This project is about setting up a basic bare metal stm32 project. This project does not use any ide or third party libraries. The focus is on getting started with the stm32 platform and understanding the basics of how to set up a project.
 
-![flashing a stm32](https://jbvalle.github.io/images/stm32_bare_metal_make.gif)
+![flashing a stm32](./img/stm32_bare_metal_make.gif)
 
 Contents
 ========
