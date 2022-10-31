@@ -34,7 +34,7 @@ There are lot of benefits to learning about this approach, and actually implemen
 ---
 
 > **Warning**
-> Please note that it has only been tested on on Ubuntu 22.04, and further adjustments may be necessary for other systems. I would be grateful for any messages if you encounter any errors. Thank you!
+> Please note that it has only been tested on Ubuntu 22.04, and further adjustments may be necessary for other systems. I would be grateful for any messages if you encounter any errors. Thank you!
 
 #### Install `ARM GNU Toolchain`: [`Download Link`](https://developer.arm.com/downloads/-/gnu-rm)
 
