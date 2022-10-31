@@ -2,7 +2,7 @@
 
 [![blog](https://jbvalle.github.io/images/check_out_my_blog.png)](https://jbvalle.github.io/stm32_bare_metal_startup_linker.html)
 
-This project is about setting up a basic bare metal stm32 project. This project does not use any ide or third party libraries. The focus is on getting started with the stm32 platform and understanding the basics of how to set up a project.
+This project is about setting up a basic bare metal stm32 project. This project does not use any ide or third party libraries. The focus is on getting started with the stm32 platform and understanding the basics of how to set up a project without any abstractions.
 
 ![flashing a stm32](./img/stm32_bare_metal_make.gif)
 
