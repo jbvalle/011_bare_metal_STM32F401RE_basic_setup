@@ -23,6 +23,23 @@ There are lot of benefits to learning about this approach, and actually implemen
 \item using this approach can improve the performance of the MCU
 \item this method can also be used to create custom peripherals and interfaces
 \item lastly, it is a lot of fun! \+:)
+\end{DoxyItemize}
+
+{\itshape Why did I use Make over CMAKE?}
+\begin{DoxyItemize}
+\item Make is more commonly used for firmware applications that are simple and do not require a lot of customization, while CMake is more commonly used for firmware applications that are more complex and require more customization. As my setup has a very small foot print and the goal was learning core principles of the build process, it made sense using make for my purposes.
+\end{DoxyItemize}
+
+{\itshape Why did I choose C over C++?}
+\begin{DoxyItemize}
+\item When it comes to firmware applications in embedded systems, there is often a debate about whether to use c++ or c. Both have their pros and cons, so it really comes down to a matter of preference.
+\item C++ has the advantage of being a more powerful programming language. It allows for more complex data structures and algorithms, which can be helpful in firmware applications. Additionally, c++ compilers are usually more optimized than c compilers, so code can run faster.
+\item On the other hand, c is a simpler language and is often easier to learn and work with. Additionally, c code is often more readable than c++ code, which was helpful as this project was meant for educational purposes.
+\end{DoxyItemize}
+
+{\itshape Why did I not use SDKs, IDEs and any third party libraries?}
+\begin{DoxyItemize}
+\item This project is not about avoiding tools and abstractions in general. This project is about understanding how things work behind the curtain in order to learn and understand what is usually hidden. By understanding the inner workings of something, we can often get a better grasp of the big picture.
 \end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsection{\#\#\# Installation Requirements}\label{index_autotoc_md3}
 \begin{quote}
 {\bfseries{Warning}} Please note that it has only been tested on Ubuntu 22.\+04, and further adjustments may be necessary for other systems. I would be grateful for any messages if you encounter any errors. Thank you! \end{quote}
@@ -51,8 +68,6 @@ some additional recommended installations for the ARM GNU Toolchain\+:
 
 \end{DoxyCode}
 \hypertarget{index_autotoc_md8}{}\doxysubsection{\#\#\# Usage}\label{index_autotoc_md8}
-To start the interactive program, simply run {\ttfamily \$ shallow-\/backup}.
-
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Usage: make [TARGETS]}
@@ -98,5 +113,5 @@ To start the interactive program, simply run {\ttfamily \$ shallow-\/backup}.
 \DoxyCodeLine{└── Makefile}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md10}{}\doxysubsection{\#\#\# Want to learn?}\label{index_autotoc_md10}
+\hypertarget{index_autotoc_md10}{}\doxysubsection{\#\#\# Want to learn more?}\label{index_autotoc_md10}
 \href{https://jbvalle.github.io/stm32_bare_metal_startup_linker.html}{\texttt{ }} 

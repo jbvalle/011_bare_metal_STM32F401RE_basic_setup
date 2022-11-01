@@ -88,6 +88,17 @@ Why?</h3>
 <li>this method can also be used to create custom peripherals and interfaces</li>
 <li>lastly, it is a lot of fun! :)</li>
 </ul>
+<p><em>Why did I use Make over CMAKE?</em></p><ul>
+<li>Make is more commonly used for firmware applications that are simple and do not require a lot of customization, while CMake is more commonly used for firmware applications that are more complex and require more customization. As my setup has a very small foot print and the goal was learning core principles of the build process, it made sense using make for my purposes.</li>
+</ul>
+<p><em>Why did I choose C over C++?</em></p><ul>
+<li>When it comes to firmware applications in embedded systems, there is often a debate about whether to use c++ or c. Both have their pros and cons, so it really comes down to a matter of preference.</li>
+<li>C++ has the advantage of being a more powerful programming language. It allows for more complex data structures and algorithms, which can be helpful in firmware applications. Additionally, c++ compilers are usually more optimized than c compilers, so code can run faster.</li>
+<li>On the other hand, c is a simpler language and is often easier to learn and work with. Additionally, c code is often more readable than c++ code, which was helpful as this project was meant for educational purposes.</li>
+</ul>
+<p><em>Why did I not use SDKs, IDEs and any third party libraries?</em></p><ul>
+<li>This project is not about avoiding tools and abstractions in general. This project is about understanding how things work behind the curtain in order to learn and understand what is usually hidden. By understanding the inner workings of something, we can often get a better grasp of the big picture.</li>
+</ul>
 <h2><a class="anchor" id="autotoc_md3"></a>
 ### Installation Requirements</h2>
 <blockquote class="doxtable">
@@ -107,7 +118,6 @@ Install &lt;tt&gt;gdb-multiarch&lt;/tt&gt;</h4>
 <div class="fragment"><div class="line">$ sudo apt-get install -y gdb-multiarch</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 ### Usage</h2>
-<p>To start the interactive program, simply run <code>$ shallow-backup</code>.</p>
 <div class="fragment"><div class="line">Usage: make [TARGETS]</div>
 <div class="line"> </div>
 <div class="line">Targets:</div>
@@ -147,7 +157,7 @@ Install &lt;tt&gt;gdb-multiarch&lt;/tt&gt;</h4>
 <div class="line">│</div>
 <div class="line">└── Makefile</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
-### Want to learn?</h2>
+### Want to learn more?</h2>
 <p><a href="https://jbvalle.github.io/stm32_bare_metal_startup_linker.html"><img src="https://jbvalle.github.io/images/check_out_my_blog.png" alt="blog" class="inline"/></a> </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
