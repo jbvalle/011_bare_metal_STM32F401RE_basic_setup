@@ -1,4 +1,4 @@
-# Bare Metal STM32
+[#](#) Bare Metal STM32
 
 [![blog](https://jbvalle.github.io/images/check_out_my_blog.png)](https://jbvalle.github.io/stm32_bare_metal_startup_linker.html)
 
@@ -28,6 +28,18 @@ There are lot of benefits to learning about this approach, and actually implemen
 + this method can also be used to create custom peripherals and interfaces
 + lastly, it is a lot of fun! :)
 
+_Why did I use Make over CMAKE?_
++ Make is more commonly used for firmware applications that are simple and do not require a lot of customization, while CMake is more commonly used for firmware applications that are more complex and require more customization. As my setup has a very small foot print and the goal was learning core principles of the build process, it made sense using make for my purposes.
+
+_Why did I choose C over C++?_
++ When it comes to firmware applications in embedded systems, there is often a debate about whether to use c++ or c. Both have their pros and cons, so it really comes down to a matter of preference.
+
++ C++ has the advantage of being a more powerful programming language. It allows for more complex data structures and algorithms, which can be helpful in firmware applications. Additionally, c++ compilers are usually more optimized than c compilers, so code can run faster.
+
++ On the other hand, c is a simpler language and is often easier to learn and work with. Additionally, c code is often more readable than c++ code, which was helpful as this project was meant for educational purposes.
+
+_Why did I not use SDKs, IDEs and any third party libraries?_
++  This project is not about avoiding tools and abstractions in general. This project is about understanding how things work behind the curtain in order to learn and understand what is usually hidden. By understanding the inner workings of something, we can often get a better grasp of the big picture.
 
 
 ### Installation Requirements
