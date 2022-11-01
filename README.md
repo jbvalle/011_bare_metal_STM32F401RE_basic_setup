@@ -121,7 +121,7 @@ Targets:
 └── Makefile
 ```
 
-### Want to learn?
+### Want to learn more?
 ---
 
 [![blog](https://jbvalle.github.io/images/check_out_my_blog.png)](https://jbvalle.github.io/stm32_bare_metal_startup_linker.html)
