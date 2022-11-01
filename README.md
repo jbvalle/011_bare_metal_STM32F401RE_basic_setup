@@ -64,9 +64,6 @@ $ sudo apt-get install -y gdb-multiarch
 ### Usage
 ---
 
-To start the interactive program, simply run `$ shallow-backup`.
-
-
 ```shell
 Usage: make [TARGETS]
 
