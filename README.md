@@ -1,4 +1,4 @@
-[#](#) Bare Metal STM32
+# Bare Metal STM32
 
 [![blog](https://jbvalle.github.io/images/check_out_my_blog.png)](https://jbvalle.github.io/stm32_bare_metal_startup_linker.html)
 
