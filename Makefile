@@ -17,7 +17,7 @@ LD := $(wildcard $(SUP_DIR)/*.ld)
 
 # FLAGS
 MARCH = cortex-m4
-CFLAGS = -g -Wall -mcpu=$(MARCH) -mthumb -mfloat-abi=soft -I$(INC_DIR)
+CFLAGS = -g -Wall -mcpu=$(MARCH) -mthumb -mfloat-abi=soft -I$(INC_DIR) -ffreestanding -nostartfiles
 LFLAGS = -nostdlib -T $(LD) -Wl,-Map=$(DEB_DIR)/main.map
 
 #PATHS
